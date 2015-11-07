@@ -28,4 +28,17 @@ section {
 
 .field {
   margin-bottom: $small-spacing;
+  margin-top: $small-spacing;
+}
+
+.field-with-btn {
+  position: relative;
+
+  button {
+    @include position(absolute, 0em 0em 0em null);
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    outline: none;
+    padding: 5px 10px;
+  }
 }

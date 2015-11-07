@@ -6,6 +6,7 @@ ru:
         other: Контакты
     attributes:
       contact:
+        name: ФИО
         first_name: Имя
         last_name: Фамилия
         emails: E-mails
@@ -17,6 +18,12 @@ ru:
     share_contact:
       subject: Обмен контактом
       link_to_contact: Ссылка на контакт
+
+  errors:
+    messages:
+      not_saved:
+        one: Сохранение не удалось
+        other: Сохранение не удалось
 
   layouts:
     title: Адресная книга

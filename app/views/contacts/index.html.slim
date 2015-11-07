@@ -6,8 +6,7 @@
 table.tables
   thead
     tr
-      th= Contact.human_attribute_name(:first_name)
-      th= Contact.human_attribute_name(:last_name)
+      th= Contact.human_attribute_name(:name)
       th= Contact.human_attribute_name(:emails)
       th= Contact.human_attribute_name(:phones)
       th
@@ -15,18 +14,18 @@ table.tables
   tbody
     - @contacts.each do |contact|
       tr
-        td = contact.first_name
-        td = contact.last_name
+        td = link_to contact.name, contact
         td
-          - contact.emails.each do |email|
-            = email
+          ul
+            - contact.emails.each do |email|
+              li = mail_to email
         td
-          - contact.phones.each do |phone|
-            = phone
+          ul
+            - contact.phones.each do |phone|
+              li = phone
         td
-          = link_to t('contacts.show'), contact, class: 'btn'
-          = link_to t('contacts.edit'), edit_contact_path(contact), class: 'btn'
-          = link_to t('contacts.delete'), contact, data: {confirm: t('layouts.delete_confirm')}, method: :delete, class: 'btn'
+          =< link_to t('contacts.edit'), edit_contact_path(contact), class: 'btn'
+          =< link_to t('contacts.delete'), contact, data: {confirm: t('layouts.delete_confirm')}, method: :delete, class: 'btn btn-red'
 hr
 
 h2= t('contacts.import_contacts')

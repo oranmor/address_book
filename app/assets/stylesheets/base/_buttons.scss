@@ -1,6 +1,6 @@
-#{$all-buttons}, .btn {
+@mixin button($color) {
   appearance: none;
-  background-color: $action-color;
+  background-color: $color;
   border: 0;
   border-radius: $base-border-radius;
   color: #fff;
@@ -32,4 +32,12 @@
       background-color: $action-color;
     }
   }
+}
+
+#{$all-buttons}, .btn {
+  @include button($action-color)
+}
+
+.btn-red {
+  @include button($red)
 }

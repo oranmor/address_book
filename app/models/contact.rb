@@ -6,6 +6,10 @@ class Contact < ActiveRecord::Base
   validates :phones, presence: true, if: ->(contact) { contact.emails.blank? }
   validates :first_name, uniqueness: { scope: :last_name }
 
+  def name
+    "#{first_name} #{last_name}"
+  end
+
   %i(phones= emails=).each do |method|
     define_method(method) do |values|
       values = values.split(ARRAY_DELIMITER) if values.is_a?(String)
