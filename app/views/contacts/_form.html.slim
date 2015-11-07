@@ -1,4 +1,4 @@
-= form_for @contact do |f|
+= form_for @contact, data: { 'parsley-validate' => '' } do |f|
   - if @contact.errors.any?
     #error_explanation
       h2 = "#{pluralize(@contact.errors.count, "error")} prohibited this contact from being saved:"
@@ -8,17 +8,17 @@
 
   .field
     = f.label :first_name
-    = f.text_field :first_name
+    = f.text_field :first_name, required: true
 
   .field
     = f.label :last_name
-    = f.text_field :last_name
+    = f.text_field :last_name, required: true
 
   .field
     = f.label :emails
     - @contact.emails.each do |email|
       .field-with-btn
-        = email_field_tag 'contact[emails][]', email
+        = email_field_tag 'contact[emails][]', email, required: true
         = button_tag 'X', class: 'js-remove-field'
     = button_tag t('contacts.email.add'), class: 'js-add-field'
     .js-new-field.invisible
@@ -30,7 +30,7 @@
     = f.label :phones
     - @contact.phones.each do |phone|
       .field-with-btn
-        = phone_field_tag 'contact[phones][]', phone
+        = phone_field_tag 'contact[phones][]', phone, required: true
         = button_tag 'X', class: 'js-remove-field'
     = button_tag t('contacts.phone.add'), class: 'js-add-field'
     .js-new-field.invisible
