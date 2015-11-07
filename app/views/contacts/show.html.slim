@@ -8,11 +8,13 @@ p
   = @contact.last_name
 p
   strong Emails:
-  = @contact.emails
+  - @contact.emails.each do |email|
+    p
+      = email
 p
   strong Phones:
-  = @contact.phones
+  - @contact.phones.each do |phone|
+    p
+      = phone
 
-= link_to 'Edit', edit_contact_path(@contact)
-'|
-= link_to 'Back', contacts_path
+= link_to t('contacts.edit'), edit_contact_path(@contact), class: 'btn'

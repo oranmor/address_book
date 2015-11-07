@@ -1,3 +1,9 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  $('form').on 'click', '.js-remove-field', (e) ->
+    e.preventDefault()
+    $(e.currentTarget).parents('.field-with-btn').remove()
+
+  $('.js-add-field').click (e) ->
+    e.preventDefault()
+    new_field = $(e.currentTarget).parents('.field').find('.js-new-field').clone()
+    $(e.currentTarget).before new_field.html()

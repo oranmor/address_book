@@ -1,0 +1,30 @@
+ru:
+  activerecord:
+    models:
+      contact:
+        one: Контакт
+        other: Контакты
+    attributes:
+      contact:
+        first_name: Имя
+        last_name: Фамилия
+        emails: E-mails
+        phones: Телефоны
+        created_at: Создан
+        updated_at: Обновлен
+
+  layouts:
+    title: Адресная книга
+    menu: Меню
+    delete_confirm: 'Вы уверены?'
+
+  contacts:
+    new: Новый контакт
+    edit: Редактировать контакт
+    show: Просмотр контакта
+    index: Список контактов
+    destroy: Удалить контакт
+    email:
+      add: Добавить e-mail
+    phone:
+      add: Добавить телефон

@@ -1,14 +1,15 @@
-h1 Listing contacts
+.page-header
+  = link_to t('contacts.new'), new_contact_path, class: 'btn'
+  h1
+    = t('contacts.index')
 
-table
+table.tables
   thead
     tr
-      th First name
-      th Last name
-      th Emails
-      th Phones
-      th
-      th
+      th= Contact.human_attribute_name(:first_name)
+      th= Contact.human_attribute_name(:last_name)
+      th= Contact.human_attribute_name(:emails)
+      th= Contact.human_attribute_name(:phones)
       th
 
   tbody
@@ -16,12 +17,13 @@ table
       tr
         td = contact.first_name
         td = contact.last_name
-        td = contact.emails
-        td = contact.phones
-        td = link_to 'Show', contact
-        td = link_to 'Edit', edit_contact_path(contact)
-        td = link_to 'Destroy', contact, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Contact', new_contact_path
+        td
+          - contact.emails.each do |email|
+            = email
+        td
+          - contact.phones.each do |phone|
+            = phone
+        td
+          = link_to t('contacts.show'), contact, class: 'btn'
+          = link_to t('contacts.edit'), edit_contact_path(contact), class: 'btn'
+          = link_to t('contacts.destroy'), contact, data: {confirm: t('layouts.delete_confirm')}, method: :delete, class: 'btn'
