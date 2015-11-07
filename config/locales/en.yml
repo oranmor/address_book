@@ -31,14 +31,18 @@ en:
         notice: '%{resource} was successfully updated.'
       destroy:
         notice: '%{resource} was successfully destroyed.'
+      import:
+        notice: '%{resource} was successfully imported.'
 
   contacts:
     new: New contact
     edit: Edit contact
     show: Show contact
     index: List of contacts
+    index_csv: Export contacts to csv
     delete: Delete contact
     share: Share contact
+    import_contacts: Import contacts
     email:
       add: Add e-mail
     phone:

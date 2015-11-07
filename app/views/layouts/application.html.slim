@@ -19,9 +19,9 @@ html lang=I18n.locale
                 li
                   = link_to t('contacts.index'), contacts_path
                 li
-                  = link_to t('contacts.new'), new_contact_path
+                  = link_to t('contacts.index_csv'), contacts_path(format: :csv)
                 li
-                  = link_to 'Import', '#'
+                  = link_to t('contacts.new'), new_contact_path
         .navigation-tools
           .search-bar
             form role='search'

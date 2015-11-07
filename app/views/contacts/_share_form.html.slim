@@ -1,7 +1,7 @@
-= form_for @contact, url: share_contact_path do |f|
+= form_tag share_contact_path, method: :put do
   .field
     = label_tag :email
     = email_field_tag :email
 
   .actions
-    = f.submit t('contacts.share')
+    = submit_tag t('contacts.share')

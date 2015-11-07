@@ -31,14 +31,18 @@ ru:
         notice: '%{resource} обновлен.'
       destroy:
         notice: '%{resource} удалён.'
+      import:
+        notice: '%{resource} импортированы.'
 
   contacts:
     new: Новый контакт
     edit: Редактировать контакт
     show: Просмотр контакта
     index: Список контактов
+    index_csv: Экспорт контактов в csv
     delete: Удалить контакт
     share: Поделиться контактом
+    import_contacts: Импорт контактов
     email:
       add: Добавить e-mail
     phone:
