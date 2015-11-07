@@ -1,0 +1,33 @@
+doctype html
+html lang=I18n.locale
+  head
+    title
+      = content_for(:title) || t('layouts.title')
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+    = content_for :head
+  body
+    header.navigation role='banner'
+      .navigation-wrapper
+        a#js-mobile-menu.navigation-menu-button =t('layouts.menu')
+        nav role='navigation'
+          ul#js-navigation-menu.navigation-menu.show
+            li.nav-link.more
+              = link_to Contact.model_name.human(count: 2)
+              ul.submenu
+                li
+                  = link_to t('contacts.index'), contacts_path
+                li
+                  = link_to t('contacts.new'), new_contact_path
+                li
+                  = link_to 'Import', '#'
+        .navigation-tools
+          .search-bar
+            form role='search'
+              input placeholder='Enter Search' type='search'
+              button type='submit'
+                = image_tag 'search-icon.png'
+    section.container
+      .wrapper
+        = yield
