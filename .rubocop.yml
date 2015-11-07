@@ -17,3 +17,6 @@ Style/Lambda:
 
 Style/GuardClause:
   Enabled: false
+
+Style/BlockComments:
+  Enabled: false

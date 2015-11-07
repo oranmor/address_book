@@ -17,3 +17,6 @@
 
 # Ignore bundled gems
 /vendor/bundle/
+
+# Ignore simplecov files
+/coverage
