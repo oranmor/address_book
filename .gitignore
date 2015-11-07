@@ -11,3 +11,9 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore RubyMine files
+.idea
+
+# Ignore bundled gems
+/vendor/bundle/
