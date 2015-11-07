@@ -23,14 +23,24 @@ en:
     menu: Menu
     delete_confirm: 'Are you sure?'
 
+  flash:
+    actions: &actions
+      create:
+        notice: '%{resource} was successfully created.'
+      update:
+        notice: '%{resource} was successfully updated.'
+      destroy:
+        notice: '%{resource} was successfully destroyed.'
+
   contacts:
     new: New contact
     edit: Edit contact
     show: Show contact
     index: List of contacts
-    destroy: Delete contact
+    delete: Delete contact
     share: Share contact
     email:
       add: Add e-mail
     phone:
       add: Add phone
+    <<: *actions

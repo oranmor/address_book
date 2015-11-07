@@ -23,14 +23,24 @@ ru:
     menu: Меню
     delete_confirm: 'Вы уверены?'
 
+  flash:
+    actions: &actions
+      create:
+        notice: '%{resource} добавлен.'
+      update:
+        notice: '%{resource} обновлен.'
+      destroy:
+        notice: '%{resource} удалён.'
+
   contacts:
     new: Новый контакт
     edit: Редактировать контакт
     show: Просмотр контакта
     index: Список контактов
-    destroy: Удалить контакт
+    delete: Удалить контакт
     share: Поделиться контактом
     email:
       add: Добавить e-mail
     phone:
       add: Добавить телефон
+    <<: *actions

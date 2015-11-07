@@ -26,4 +26,4 @@ table.tables
         td
           = link_to t('contacts.show'), contact, class: 'btn'
           = link_to t('contacts.edit'), edit_contact_path(contact), class: 'btn'
-          = link_to t('contacts.destroy'), contact, data: {confirm: t('layouts.delete_confirm')}, method: :delete, class: 'btn'
+          = link_to t('contacts.delete'), contact, data: {confirm: t('layouts.delete_confirm')}, method: :delete, class: 'btn'

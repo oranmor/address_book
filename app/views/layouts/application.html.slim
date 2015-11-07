@@ -29,5 +29,11 @@ html lang=I18n.locale
               button type='submit'
                 = image_tag 'search-icon.png'
     section.container
+      - if flash.any?
+        .flashes
+          - flash.each do |name, msg|
+            div class=name
+              = msg
+
       .wrapper
         = yield
