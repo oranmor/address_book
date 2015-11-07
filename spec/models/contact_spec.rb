@@ -17,8 +17,12 @@ describe Contact, type: :model do
       subject { build(:contact, emails: nil) }
       it { is_expected.to be_valid }
     end
-    context 'without phones, without emaisl' do
+    context 'without phones, without emails' do
       subject { build(:contact, emails: nil, phones: nil) }
+      it { is_expected.to_not be_valid }
+    end
+    context 'with invalid emails' do
+      subject { build(:contact, emails: ['invalid']) }
       it { is_expected.to_not be_valid }
     end
   end

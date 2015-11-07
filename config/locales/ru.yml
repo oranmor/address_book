@@ -21,6 +21,7 @@ ru:
 
   errors:
     messages:
+      not_email: некорректный email
       not_saved:
         one: Сохранение не удалось
         other: Сохранение не удалось
