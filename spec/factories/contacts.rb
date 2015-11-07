@@ -4,5 +4,8 @@ FactoryGirl.define do
     last_name { Faker::Name.last_name }
     emails { [Faker::Internet.email(first_name), Faker::Internet.email(last_name)] }
     phones { [Faker::PhoneNumber.cell_phone, Faker::PhoneNumber.cell_phone] }
+    trait :invalid do
+      first_name { nil }
+    end
   end
 end

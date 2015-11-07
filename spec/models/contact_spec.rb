@@ -23,4 +23,18 @@ describe Contact, type: :model do
     end
   end
 
+  describe '#name' do
+    it { expect(subject.name).to eq("#{subject.first_name} #{subject.last_name}") }
+  end
+
+  [:phones, :emails].each do |method|
+    describe "##{method}=" do
+      it 'convert string to array' do
+        expect { subject.send("#{method}=", '123;abc') }.to change { subject.send(method) }.to(%w(123 abc))
+      end
+      it 'rejects blank fields' do
+        expect { subject.send("#{method}=", ['123', '', 'abc']) }.to change { subject.send(method) }.to(%w(123 abc))
+      end
+    end
+  end
 end

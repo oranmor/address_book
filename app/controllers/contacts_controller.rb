@@ -39,11 +39,15 @@ class ContactsController < ApplicationController
   def share
     ContactSharingMailer.share_contact(@contact.id, params.require(:email)).deliver_later
     redirect_to :back
+  rescue ActionController::RedirectBackError
+    redirect_to root_path
   end
 
   def import
     ContactCsvService.import_from_csv(params.require(:file).tempfile)
     redirect_to :back, notice: t('.notice', resource: Contact.model_name.human(count: 2))
+  rescue ActionController::RedirectBackError
+    redirect_to root_path, notice: t('.notice', resource: Contact.model_name.human(count: 2))
   end
 
   private
