@@ -24,9 +24,9 @@ html lang=I18n.locale
                   = link_to t('contacts.new'), new_contact_path
         .navigation-tools
           .search-bar
-            form role='search'
-              input placeholder='Enter Search' type='search'
-              button type='submit'
+            = form_tag contacts_path, method: :get, role: 'search'
+              = search_field_tag :q, params[:q]
+              = button_tag :submit do
                 = image_tag 'search-icon.png'
     section.container
       - if flash.any?

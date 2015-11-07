@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy, :share]
 
   def index
-    @contacts = Contact.all
+    @contacts = params[:q].present? ? Contact.search(params[:q]) : Contact.all
     respond_to do |format|
       format.html
       format.csv { send_data ContactCsvService.export_to_csv }

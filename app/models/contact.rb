@@ -6,6 +6,13 @@ class Contact < ActiveRecord::Base
   validates :phones, presence: true, if: ->(contact) { contact.emails.blank? }
   validates :first_name, uniqueness: { scope: :last_name }
 
+  scope :search, ->(str) {
+    where("first_name ILIKE :str OR
+           last_name ILIKE :str OR
+           :str ILIKE ANY (emails) OR
+           :str ILIKE ANY (phones)", str: str)
+  }
+
   def name
     "#{first_name} #{last_name}"
   end
