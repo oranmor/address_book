@@ -1,0 +1,6 @@
+<%= Contact.human_attribute_name(:first_name) %>: <%= @contact.first_name %>
+<%= Contact.human_attribute_name(:last_name) %>: <%= @contact.last_name %>
+<%= Contact.human_attribute_name(:phones) %>: <%= @contact.phones.join(', ') %>
+<%= Contact.human_attribute_name(:emails) %>: <%= @contact.emails.join(', ') %>
+
+<%= t('.link_to_contact') %>: <%= contact_url(@contact) %>

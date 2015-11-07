@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_contact, only: [:show, :edit, :update, :destroy, :share]
 
   # GET /contacts
   def index
@@ -43,6 +43,12 @@ class ContactsController < ApplicationController
   def destroy
     @contact.destroy
     redirect_to contacts_url, notice: 'Contact was successfully destroyed.'
+  end
+
+  # PATCH /contacts/1/share
+  def share
+    ContactSharingMailer.share_contact(@contact.id, params.require(:email)).deliver_later
+    redirect_to :back
   end
 
   private

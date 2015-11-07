@@ -13,6 +13,11 @@ ru:
         created_at: Создан
         updated_at: Обновлен
 
+  contact_sharing_mailer:
+    share_contact:
+      subject: Обмен контактом
+      link_to_contact: Ссылка на контакт
+
   layouts:
     title: Адресная книга
     menu: Меню
@@ -24,6 +29,7 @@ ru:
     show: Просмотр контакта
     index: Список контактов
     destroy: Удалить контакт
+    share: Поделиться контактом
     email:
       add: Добавить e-mail
     phone:
